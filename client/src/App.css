@@ -1,0 +1,36 @@
+
+
+/* login page */
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.loginForm {
+  width: 60%;
+  margin: auto;
+}
+
+/* operations page */
+.operations{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+  margin-top: 3rem;
+}
+.operation-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}
+
+.operations-btn {
+  margin:   1rem;
+  max-width: 80vw;
+}
+
