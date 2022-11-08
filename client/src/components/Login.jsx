@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login(props) {
+    const navigate = useNavigate()
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("")
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(userName, password)
+        console.log(userName, password);
+        if(userName==="ansh" && password==="asdf"){
+            localStorage.setItem("adminToken",userName+password);
+            navigate("/operations");
+        }
     }
 
     const onTextChange = (e) => {
@@ -14,17 +20,25 @@ function Login(props) {
         if (e.target.id === "password")
             setPassword(e.target.value);
     }
+
+    const handleKeyDown = (e)=>{
+        if(e.key==="Enter"){
+            onSubmit(e);
+        }
+    }
+
+
     return (<>
         <div className="Login">
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Global bank admin Login</h1>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h1 className="display-4">Global bank admin Login</h1>
                 </div>
             </div>
-            <form className="loginForm">
+            <form className="loginForm" onKeyDown={handleKeyDown}>
 
                 <div className="form-outline mb-4">
-                    <input type="email" id="username" className="form-control" value={userName} onChange={onTextChange} />
+                    <input type="text" id="username" className="form-control" value={userName} onChange={onTextChange} />
                     <label className="form-label" htmlFor="username" >Username</label>
                 </div>
 
@@ -32,20 +46,6 @@ function Login(props) {
                     <input type="password" id="password" className="form-control" value={password} onChange={onTextChange} />
                     <label className="form-label" htmlFor="password">Password</label>
                 </div>
-
-                {/* <div className="row mb-4">
-    <div className="col d-flex justify-content-center">
-      <div className="form-check">
-        <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-        <label className="form-check-label" htmlFor="form2Example31"> Remember me </label>
-      </div>
-    </div>
-
-    <div className="col">
-      <a href="#!">Forgot password?</a>
-    </div>
-  </div> */}
-
                 <button type="button" className="btn btn-primary btn-block mb-4" onClick={onSubmit}>Sign in</button>
             </form>
 

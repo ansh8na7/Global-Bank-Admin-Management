@@ -1,6 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import isLoggedIn from "../auth/loginAuth";
+import Signout from './Signout';
 
 const Operations = () => {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+      
+        if(!isLoggedIn()){
+            navigate("/");
+        }
+    })
+    
 
     const redirectCustomerDetails = (e)=>{
         console.log(e.target.name)
@@ -20,9 +33,9 @@ const Operations = () => {
 
     return (
         <div className='operations'>
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">Global bank admin operations</h1>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h1 className="display-4">Global bank admin operations</h1>
                 </div>
             </div>
             <div className="operation-buttons">
@@ -30,6 +43,7 @@ const Operations = () => {
                 <button type="button" className="btn btn-primary operations-btn" name="BranchDetails" onClick={redirectBranchDetails}>Branch Details</button>
                 <button type="button" className="btn btn-primary operations-btn" name='addCustomer' onClick={redirectAddCustomer}>Add Customer </button>
                 <button type="button" className="btn btn-primary operations-btn" name="addBranch" onClick={redirectAddBranch}>Add  Branch</button>
+                <Signout />
             </div>
         </div>
     )
