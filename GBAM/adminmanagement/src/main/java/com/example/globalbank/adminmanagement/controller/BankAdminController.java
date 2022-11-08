@@ -27,8 +27,8 @@ public class BankAdminController {
     BranchService branchService;
 
     @GetMapping("/login")
-    public String adminLogin(@RequestBody ) {
-
+    public String adminLogin( ) {
+    	return "login";
     }
 
     @GetMapping("/admin/customers")
