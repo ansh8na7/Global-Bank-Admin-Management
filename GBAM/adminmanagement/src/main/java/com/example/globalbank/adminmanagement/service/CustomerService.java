@@ -10,5 +10,7 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
 
     Boolean addAccount(Account account);
+
+    Account deleteAccount(String accountNo);
     
 }

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "branch_master", schema = "bank_schema")
+@Table(name = "branch_master", schema = "bankdb")
 public class Branch {
     
     @Id
@@ -21,6 +21,9 @@ public class Branch {
 
     @Column(name = "branch_city", length = 30)
     String branchCity;
+
+    public Branch() {
+    }
 
     public Branch(String branchId, String branchName, String branchCity) {
         this.branchId = branchId;

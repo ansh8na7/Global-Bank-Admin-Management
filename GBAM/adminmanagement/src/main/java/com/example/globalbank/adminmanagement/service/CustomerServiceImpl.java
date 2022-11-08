@@ -33,5 +33,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         return false;
     }
+
+    @Override
+    public Account deleteAccount(String accountNo) {
+        return accountService.deleteAccount(accountNo);
+    }
     
 }

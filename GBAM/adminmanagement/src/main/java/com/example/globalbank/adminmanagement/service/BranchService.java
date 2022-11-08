@@ -9,5 +9,7 @@ public interface BranchService {
     List<Branch> getAllBranches();
 
     Boolean addBranch(Branch branch);
+
+    Branch deleteBranch(String branchId);
     
 }

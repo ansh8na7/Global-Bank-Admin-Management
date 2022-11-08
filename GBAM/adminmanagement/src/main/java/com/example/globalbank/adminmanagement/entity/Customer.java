@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "customer_master", schema = "bank_schema")
+@Table(name = "customer_master", schema = "bankdb")
 public class Customer {
 
     @Id
@@ -38,6 +38,9 @@ public class Customer {
 
     @Column(name = "customer_date_of_birth")
     Date customerDob;
+
+    public Customer() {
+    }
 
     public Customer(String customerNumber, String firstName, String middleName, String lastName, String customerCity,
             String customerContactNo, String occupation, Date customerDob) {

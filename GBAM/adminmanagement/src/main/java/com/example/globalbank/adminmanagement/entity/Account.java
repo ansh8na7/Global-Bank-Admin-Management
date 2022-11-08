@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.springframework.lang.NonNull;
 
 @Entity
-@Table(name = "account_master", schema = "bank_schema")
+@Table(name = "account_master", schema = "bankdb")
 public class Account {
 
     @Id
@@ -37,6 +37,9 @@ public class Account {
 
     @Column(name = "account_status", length = 10)
     String accountStatus;
+
+    public Account() {
+    }
 
     public Account(String accountNumber, String customerNumber, String branchId, Long openingBalance,
             Date accountOpeningDate, String accountType, String accountStatus) {

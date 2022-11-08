@@ -21,14 +21,17 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public Boolean addBranch(Branch branch) {
-        String branchId = branch.getBranchId();
-
-        if (branchRepository.findById(branchId).isPresent()) {
-            return false;
-        }
-        
+       
         branchRepository.save(branch);
         return true;
+    }
+
+    @Override
+    public Branch deleteBranch(String branchId) {
+
+        Branch branch = branchRepository.findById(branchId).get();
+        branchRepository.deleteById(branchId);
+        return branch;
     }
     
 }

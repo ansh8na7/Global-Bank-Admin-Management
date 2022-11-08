@@ -15,14 +15,16 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Boolean addAccount(Account account) {
 
-        String accountNumber = account.getAccountNumber();
-
-        if (accountRepository.findById(accountNumber).isPresent()) {
-            return false;
-        }
-
         accountRepository.save(account);
         return true;
+    }
+
+    @Override
+    public Account deleteAccount(String accountNo) {
+
+        Account account = accountRepository.findById(accountNo).get(); 
+        accountRepository.deleteById(accountNo);
+        return account;
     }
     
 }
