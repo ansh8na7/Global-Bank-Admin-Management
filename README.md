@@ -1,6 +1,9 @@
 # Global-Bank-Admin-Management
 Capstone Batch 1 Project 1
 
+
+http://localhost:8080
+
 @GetMapping("/login")  
 Request Body: user : { username, password }  
 return boolean  
