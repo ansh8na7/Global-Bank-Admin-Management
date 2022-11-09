@@ -6,6 +6,7 @@ import EditableRow from "./EditableRows";
 import ReadOnlyRow from "./ReadOnlyRows";
 import isLoggedIn from "../auth/loginAuth";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const News = ({ handleAddFormChange, handleAddFormSubmit}) => {
@@ -17,6 +18,7 @@ const News = ({ handleAddFormChange, handleAddFormSubmit}) => {
     if(!isLoggedIn()){
         navigate("/");
     }
+
 })
 
   
@@ -40,13 +42,13 @@ return (
     <input type="text" placeholder="Enter Customer Number" name="CustomerNo" id="customerNo" required onChange={handleAddFormChange}></input>
 
     <label for="BranchId"><b>Branch Id</b></label>
-<select type="text" id="branch" name="branch">
+<select type="text" id="branch" name="BranchId" onChange={handleAddFormChange}>
 <option value="" disabled selected required>Select your option</option>
-<option value="b001">b001</option>
-<option value="b002">b002</option>
-<option value="b003">b003</option>
-<option value="b004">b004</option>
-<option value="b005">b005</option>
+<option value="B001">B001</option>
+<option value="B002">B002</option>
+<option value="B003">B003</option>
+<option value="B004">B004</option>
+<option value="B005">B005</option>
 </select>
 
 <label for="Balance"><b>Opening Balance</b></label>

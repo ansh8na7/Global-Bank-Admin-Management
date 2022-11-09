@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
 import "./App.css";
 import data from "./mock-data.json";
@@ -22,9 +22,15 @@ import axios from "axios";
 
 
 const App = () => {
- axios.get("/api/admin/customers").then(({response}) => { setCustomerDetails(response.data);}).catch((error) => {console.log(error)});
+
+
+  const [customerDetails, setCustomerDetails] = useState({});
+
+useEffect(() => {
+  axios.get("/api/admin/customers").then(({response}) => { setCustomerDetails(response.data);}).catch((error) => {console.log(error)});
+ 
+})
      
-  const [customerDetails, setCustomerDetails] = useState(data);
 
   const [addFormData, setAddFormData] = useState({
     AccountNo: '',
@@ -73,16 +79,28 @@ const App = () => {
 
 const handleAddFormSubmit = async (e) => {
   e.preventDefault();
-  console.log(userName, password);
   
+console.log("add form data:")
+console.log(addFormData);
+let obj = {
+  "accountNumber":addFormData.AccountNo,
+  "customerNumber":addFormData.CustomerNo,
+  "branchId":addFormData.BranchId,
+  "openingBalance":addFormData.Balance,
+  "accountOpeningDate":addFormData.OpeningDate,
+  "accountType":addFormData.accountType,
+  "accountStatus": addFormData.accountStatus,
+}
+
+console.log(obj)
   let res = await axios.post("/api/admin/customers/account",{
-      "accountNumber":newCustomerDetails.AccountNo,
-      "customerNumber":newCustomerDetails.CustomerNo,
-      "branchId":newCustomerDetails.BranchId,
-      "openingBalance":newCustomerDetails.Balance,
-      "accountOpeningDate":newCustomerDetails.OpeningDate,
-      "accountType":newCustomerDetails.accountType,
-      "accountStatus": newCustomerDetails.accountStatus,
+      "accountNumber":addFormData.AccountNo,
+      "customerNumber":addFormData.CustomerNo,
+      "branchId":addFormData.BranchId,
+      "openingBalance":addFormData.Balance,
+      "accountOpeningDate":addFormData.OpeningDate,
+      "accountType":addFormData.accountType,
+      "accountStatus": addFormData.accountStatus,
   });
   console.log(res.data);
   if(res.data===true){
