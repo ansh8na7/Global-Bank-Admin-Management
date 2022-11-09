@@ -1,17 +1,25 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login(props) {
     const navigate = useNavigate()
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("")
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         console.log(userName, password);
-        if(userName==="ansh" && password==="asdf"){
+        
+        let res = await axios.post("/api/login",{
+            "userName":userName,
+            "password":password
+        });
+        console.log(res.data);
+        if(res.data===true){
             localStorage.setItem("adminToken",userName+password);
             navigate("/operations");
         }
+
     }
 
     const onTextChange = (e) => {

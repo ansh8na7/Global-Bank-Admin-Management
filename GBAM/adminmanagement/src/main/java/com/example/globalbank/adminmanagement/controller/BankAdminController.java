@@ -30,37 +30,37 @@ public class BankAdminController {
     @Autowired
     UserAdminService userAdminService;
 
-    @GetMapping("/login")
+    @PostMapping("/api/login")
     public Boolean adminLogin(@RequestBody UserAdmin userAdmin) {
         return userAdminService.authenticate(userAdmin);
     }
 
-    @GetMapping("/admin/customers")
+    @GetMapping("/api/admin/customers")
     public List<Customer> getCustomers() {
         return customerService.getAllCustomers();
     }
 
-    @GetMapping("/admin/branches")
+    @GetMapping("/api/admin/branches")
     public List<Branch> getBranches() {
         return branchService.getAllBranches();
     }
 
-    @PostMapping("/admin/customers/account") 
+    @PostMapping("/api/admin/customers/account") 
     public Boolean addAccount(@RequestBody Account account) {
         return customerService.addAccount(account);
     }
 
-    @PostMapping("/admin/branches") 
+    @PostMapping("/api/admin/branches") 
     public Boolean addBranch(@RequestBody Branch branch) {
         return branchService.addBranch(branch);
     }
 
-    @DeleteMapping("/admin/customers/account/{account_no}")
+    @DeleteMapping("/api/admin/customers/account/{account_no}")
     public Account deleteAccount(@PathVariable("account_no") String accountNo) {
         return customerService.deleteAccount(accountNo);
     }
 
-    @DeleteMapping("/admin/branches/{branch_id}")
+    @DeleteMapping("/api/admin/branches/{branch_id}")
     public Branch deleteBranch(@PathVariable("branch_id") String branchId) {
         return branchService.deleteBranch(branchId);
     }
