@@ -74,7 +74,55 @@ INSERT INTO `bankdb`.`customer_master`
 `occupation`,
 `customer_date_of_birth`)
 VALUES
-('123456', 'First', 'Middle', 'Last', 'City', '9999999999', 'engg', '2022-11-08');
+('123456', 'First', 'Middle', 'Last', 'City', '9999999999', 'engg', '2002-11-08');
+
+INSERT INTO `bankdb`.`customer_master`
+(`customer_number`,
+`firstname`,
+`middlename`,
+`lastname`,
+`customer_city`,
+`customer_contact_no`,
+`occupation`,
+`customer_date_of_birth`)
+VALUES
+('123457', 'Ram', 'Kumar', 'Mishra', 'City2', '9999998888', 'doctor', '2000-11-08');
+
+INSERT INTO `bankdb`.`customer_master`
+(`customer_number`,
+`firstname`,
+`middlename`,
+`lastname`,
+`customer_city`,
+`customer_contact_no`,
+`occupation`,
+`customer_date_of_birth`)
+VALUES
+('999999', 'Rama', 'Kumari', 'Pandey', 'City2', '9977778888', 'doctor', '1999-10-08');
+
+INSERT INTO `bankdb`.`customer_master`
+(`customer_number`,
+`firstname`,
+`middlename`,
+`lastname`,
+`customer_city`,
+`customer_contact_no`,
+`occupation`,
+`customer_date_of_birth`)
+VALUES
+('987654', 'John', 'Smith', 'Rambelle', 'City3', '9000098888', 'teacher', '1990-11-21');
+
+INSERT INTO `bankdb`.`customer_master`
+(`customer_number`,
+`firstname`,
+`middlename`,
+`lastname`,
+`customer_city`,
+`customer_contact_no`,
+`occupation`,
+`customer_date_of_birth`)
+VALUES
+('123654', 'Ramesh', 'Kumar','Babu', 'City2', '9922900888', 'student', '2003-01-01');
 
 INSERT INTO `bankdb`.`user_admin`
 (`username_admin`,
@@ -92,13 +140,76 @@ VALUES
  `customer_number`, 
  `opening_balance`) 
   VALUES
-  ('B99999','2022-10-09','active', 'Savings','B00001', 123457,5000);
+  ('C999','2022-10-09','active', 'Savings','B001', 123457,5000);
+  
+   INSERT INTO `bankdb`.`account_master`
+ (`account_number`,
+ `account_opening_date`, 
+ `account_status`, 
+ `account_type`, 
+ `branch_id`, 
+ `customer_number`, 
+ `opening_balance`) 
+  VALUES
+  ('C001','2020-11-09','active', 'Current','B002', 123456,10000);
+  
+  INSERT INTO `bankdb`.`account_master`
+ (`account_number`,
+ `account_opening_date`, 
+ `account_status`, 
+ `account_type`, 
+ `branch_id`, 
+ `customer_number`, 
+ `opening_balance`) 
+  VALUES
+  ('C002','2020-12-05','active', 'Current','B003', 999999,2000);
+  
+  INSERT INTO `bankdb`.`account_master`
+ (`account_number`,
+ `account_opening_date`, 
+ `account_status`, 
+ `account_type`, 
+ `branch_id`, 
+ `customer_number`, 
+ `opening_balance`) 
+  VALUES
+  ('C003','2018-11-09','active', 'Savings','B002', 987654,1000);
+  
+  INSERT INTO `bankdb`.`account_master`
+ (`account_number`,
+ `account_opening_date`, 
+ `account_status`, 
+ `account_type`, 
+ `branch_id`, 
+ `customer_number`, 
+ `opening_balance`) 
+  VALUES
+  ('C004','2021-10-09','active', 'Current','B004',123654,10000);
  
   INSERT INTO `bankdb`.`branch_master`
   (`branch_id`, 
   `branch_city`,
   `branch_name`) 
   VALUES 
-  ('B00001','acbd','xyz');
+  ('B001','acbd','xyz');
 
-
+INSERT INTO `bankdb`.`branch_master`
+  (`branch_id`, 
+  `branch_city`,
+  `branch_name`) 
+  VALUES 
+  ('B002','abcd2','xyz2');
+  
+  INSERT INTO `bankdb`.`branch_master`
+  (`branch_id`, 
+  `branch_city`,
+  `branch_name`) 
+  VALUES 
+  ('B003','acbd3','xyz3');
+  
+    INSERT INTO `bankdb`.`branch_master`
+  (`branch_id`, 
+  `branch_city`,
+  `branch_name`) 
+  VALUES 
+  ('B004','acbd4','xyz4');
