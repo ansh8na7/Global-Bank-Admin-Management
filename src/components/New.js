@@ -10,32 +10,32 @@ const New = ({handleAddFormChange, handleAddFormSubmit}) => {
    
 return (
     <div className="app-container"> 
-<h1 class="c">Open a Customer Account</h1>
+<h1 class="c">Open a Branch</h1>
       <div className="form">
 
       <form onSubmit={handleAddFormSubmit}>
   <div class="container">
-    <p>Please fill in this form to create a customer account.</p>
+    <p>Please fill in this form to create a branch.</p>
     <hr></hr>
 
     <label for="BranchId"><b>Branch Id</b></label>
-    <input type="text" placeholder="Enter Account Number" name="BranchId" id="BranchId" required onChange={handleAddFormChange}></input>
+    <input type="text" placeholder="Enter Branch Id" name="BranchId" id="BranchId" required onChange={handleAddFormChange}></input>
 
-    <label for="Name"><b>Customer Number</b></label>
-    <input type="text" placeholder="Enter Customer Number" name="Name" id="Name" required onChange={handleAddFormChange}></input>
+    <label for="Name"><b>Branch Name</b></label>
+    <input type="text" placeholder="Enter Branch Name" name="Name" id="Name" required onChange={handleAddFormChange}></input>
 
     <label for="City"><b>City</b></label>
 <select type="text" id="City" name="City">
 <option value="" disabled selected required>Select your option</option>
 <option value="Delhi">Delhi</option>
 <option value="Mumbai">Mumbai</option>
-<option value="Chennai">b003</option>
+<option value="Chennai">Chennai</option>
 </select>
 
 
 
 <hr></hr>
-    <p>Once created, this customer account will be added to the table of already existing customer of this Bank.</p>
+    <p>Once created, this branch will be added to the table of already existing branch of this Bank.</p>
 
     <button type="submit" className="btn">Add</button>
   </div>
