@@ -83,4 +83,22 @@ VALUES
 ('admin',
 'admin123');
 
+ INSERT INTO `bankdb`.`account_master`
+ (`account_number`,
+ `account_opening_date`, 
+ `account_status`, 
+ `account_type`, 
+ `branch_id`, 
+ `customer_number`, 
+ `opening_balance`) 
+  VALUES
+  ('B99999','2022-10-09','active', 'Savings','B00001', 123457,5000);
+ 
+  INSERT INTO `bankdb`.`branch_master`
+  (`branch_id`, 
+  `branch_city`,
+  `branch_name`) 
+  VALUES 
+  ('B00001','acbd','xyz');
+
 
