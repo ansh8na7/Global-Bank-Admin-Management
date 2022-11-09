@@ -6,6 +6,12 @@ import EditableRow from "./components/EditableRows";
 import ReadOnlyRow from "./components/ReadOnlyRows";
 import News from "./components/News";
 import Tables from "./components/Tables";
+
+import EditableRowBranch from "./components/EditableRowBranch";
+import ReadOnlyRowBranch from "./components/ReadOnlyRowBranch";
+import NewBranch from "./components/NewBranch";
+import TableBranch from "./components/TableBranch";
+
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -137,6 +143,7 @@ const handleAddFormSubmit = async (e) => {
     newDetails.splice(index, 1);
 
     setCustomerDetails(newDetails);
+    
   };
 
   return (
@@ -161,13 +168,29 @@ const handleAddFormSubmit = async (e) => {
           <Route path="/new" element={<News customerDetails={customerDetails}
                     handleAddFormChange={handleAddFormChange}
                     handleAddFormSubmit={handleAddFormSubmit}/>}></Route>
+         <Route path="/newbranch" element={<NewBranch customerdetails={customerDetails}
+                    handleAddFormChange={handleAddFormChange}
+                    handleAddFormSubmit={handleAddFormSubmit}/>}></Route>
+        <Route path="/tablebranch" element={<TableBranch customerDetailsBranch={customerDetails}
+      editDetailsIdBranch={editDetailsId}
+      handleEditFormSubmitBranch={handleEditFormSubmit}
+      editFormDataBranch={editFormData}
+      handleEditFormChangeBranch={handleEditFormChange}
+      handleCancelClickBranch={handleCancelClick}
+      handleEditClickBranch={handleEditClick}
+      handleDeleteClickBranch={handleDeleteClick}></TableBranch>}></Route>   
+       
       </Routes>
     </BrowserRouter>
 
     <p className="footer">For more information, Visit website</p>
 
     </div>
-);
+
+
+    
+  );
 };
+
 
 export default App;
