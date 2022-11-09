@@ -14,7 +14,6 @@ import TableBranch from "./components/TableBranch";
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layouts from "./components/Layouts";
 import { Link } from "react-router-dom";
 
 import Login from './components/Login';
@@ -155,7 +154,7 @@ const text = select.options[select.selectedIndex].text;
       <Routes>
       <Route path="/" element={<Login />} />
         <Route path="/operations" element={<Operations/>}/>
-      <Route >
+      
           {/* <Route index element={<Layouts />} /> */}
           <Route path="/table" element={<Tables customerDetails={customerDetails}
       editDetailsId={editDetailsId}
@@ -168,7 +167,6 @@ const text = select.options[select.selectedIndex].text;
           <Route path="/new" element={<News customerDetails={customerDetails}
                     handleAddFormChange={handleAddFormChange}
                     handleAddFormSubmit={handleAddFormSubmit}/>}></Route>
-        </Route>
          <Route path="/newbranch" element={<NewBranch customerdetails={customerDetails}
                     handleAddFormChange={handleAddFormChange}
                     handleAddFormSubmit={handleAddFormSubmit}/>}></Route>
