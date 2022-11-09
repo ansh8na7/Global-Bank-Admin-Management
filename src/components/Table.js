@@ -7,7 +7,7 @@ import ReadOnlyRow from "./ReadOnlyRow";
 const Table = ({customerDetails,editDetailsId, handleEditFormSubmit, editFormData,handleEditFormChange , handleCancelClick, handleEditClick, handleDeleteClick}) => {
   return (
     <div className="app-container"> 
-      <h1 class="c">Customer Details</h1>
+      <h1 class="c">Branch Details</h1>
       <form onSubmit={handleEditFormSubmit}>
         <table width="70%" height="170px" 
         border cellspacing="0">
