@@ -7,10 +7,10 @@ const Layout = () => {
       <nav>
         <ul className="list">
         <li>
-            <Link to="/table"><p className="c">Click here to view Customer Account details</p></Link>
+            <Link to="/table"><p className="c">Click here to view Branch details</p></Link>
           </li>
           <li>
-            <Link to="/new"><p className="c">Click here to add new Customer Account details</p></Link>
+            <Link to="/new"><p className="c">Click here to add new Branch</p></Link>
           </li>
         </ul>
       </nav>
