@@ -33,11 +33,6 @@ const Operations = () => {
 
     return (
         <div className='operations'>
-            <div className="jumbotron jumbotron-fluid">
-                <div className="container">
-                    <h1 className="display-4">Global bank admin operations</h1>
-                </div>
-            </div>
             <div className="operation-buttons">
                 <button type="button" className="btn btn-primary operations-btn" name="customerDetails" onClick={redirectCustomerDetails}>Customers details</button>
                 <button type="button" className="btn btn-primary operations-btn" name="BranchDetails" onClick={redirectBranchDetails}>Branch Details</button>

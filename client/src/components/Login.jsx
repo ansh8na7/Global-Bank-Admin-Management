@@ -7,28 +7,32 @@ function Login(props) {
     const navigate = useNavigate();
 
     useEffect(() => {
-      
-        if(isLoggedIn()){
+
+        if (isLoggedIn()) {
             navigate("/operations");
         }
     })
-    
+
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    
+    const [loginError, setLoginError] = useState(false);
+
     const onSubmit = async (e) => {
         e.preventDefault();
         console.log(userName, password);
-        
-        let res = await axios.post("/api/login",{
-            "userName":userName,
-            "password":password
+
+        let res = await axios.post("/api/login", {
+            "userName": userName,
+            "password": password
         });
-        console.log(res.data);
-        if(res.data===true){
-            localStorage.setItem("adminToken",userName+password);
+        console.log(res);
+        if (res.data === true) {
+            localStorage.setItem("adminToken", userName + password);
+            setLoginError(false);
             navigate("/operations");
+        } else {
+            setLoginError(true);
         }
 
     }
@@ -40,8 +44,8 @@ function Login(props) {
             setPassword(e.target.value);
     }
 
-    const handleKeyDown = (e)=>{
-        if(e.key==="Enter"){
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
             onSubmit(e);
         }
     }
@@ -67,6 +71,10 @@ function Login(props) {
                 </div>
                 <button type="button" className="btn btn-primary btn-block mb-4" onClick={onSubmit}>Sign in</button>
             </form>
+            {loginError && <div className="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                <strong className="mx-2">Error!</strong> A problem has been occurred while submitting your data.
+                <button type="button" className="btn-close" data-bs-dismiss="alert"></button>
+            </div>}
 
         </div>
     </>);
@@ -74,3 +82,4 @@ function Login(props) {
 
 
 export default Login;
+

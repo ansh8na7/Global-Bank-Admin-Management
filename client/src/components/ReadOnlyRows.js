@@ -2,13 +2,15 @@ import React from "react";
 import "../App.css"
 
 const ReadOnlyRows = ({ details, handleEditClick, handleDeleteClick }) => {
+  console.log(details)
+
   return (
     <tr>
             <td>{details.AccountNo}</td>
-            <td>{details.CustomerNo}</td>
-            <td>{details.BranchId}</td>
-            <td>{details.Balance}</td>
-            <td>{details.OpeningDate}</td>
+            <td>{details.customerNumber}</td>
+            <td>{details.branchId}</td>
+            <td>{details.balance}</td>
+            <td>{details.openingDate}</td>
             <td>
             <button
                 type="button"

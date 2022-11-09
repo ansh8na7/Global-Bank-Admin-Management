@@ -13,7 +13,7 @@ import NewBranch from "./components/NewBranch";
 import TableBranch from "./components/TableBranch";
 
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import Login from './components/Login';
@@ -22,15 +22,22 @@ import axios from "axios";
 
 
 const App = () => {
+  // const navigate = useNavigate();
 
-
-  const [customerDetails, setCustomerDetails] = useState({});
+  const [customerDetails, setCustomerDetails] = useState(data);
 
 useEffect(() => {
-  axios.get("/api/admin/customers").then(({response}) => { setCustomerDetails(response.data);}).catch((error) => {console.log(error)});
+  fetchCustomerData(); 
  
-})
-     
+},[])
+    
+
+  const fetchCustomerData = async()=>{
+    let res = await axios.get("/api/admin/customers");
+    console.log(res.data);
+    setCustomerDetails(res.data);
+  }
+
 
   const [addFormData, setAddFormData] = useState({
     AccountNo: '',
@@ -79,20 +86,7 @@ useEffect(() => {
 
 const handleAddFormSubmit = async (e) => {
   e.preventDefault();
-  
-console.log("add form data:")
-console.log(addFormData);
-let obj = {
-  "accountNumber":addFormData.AccountNo,
-  "customerNumber":addFormData.CustomerNo,
-  "branchId":addFormData.BranchId,
-  "openingBalance":addFormData.Balance,
-  "accountOpeningDate":addFormData.OpeningDate,
-  "accountType":addFormData.accountType,
-  "accountStatus": addFormData.accountStatus,
-}
 
-console.log(obj)
   let res = await axios.post("/api/admin/customers/account",{
       "accountNumber":addFormData.AccountNo,
       "customerNumber":addFormData.CustomerNo,
@@ -106,9 +100,9 @@ console.log(obj)
   if(res.data===true){
       const newDetails =await  axios.get("/api/admin/customers");
       setCustomerDetails(newDetails);
+      // navigate("/table");
+    
   }
-
-
 }
 
   const handleEditFormSubmit =async (event) => {

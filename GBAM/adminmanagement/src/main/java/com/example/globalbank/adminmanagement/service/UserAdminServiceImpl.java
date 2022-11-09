@@ -17,10 +17,14 @@ public class UserAdminServiceImpl implements UserAdminService {
         
         String username = userAdmin.getUserName();
         String password = userAdmin.getPassword();
-
-        if (userAdminRepository.findById(username).get().getPassword().equals(password)) {
-            return true;
+        try{
+            if (userAdminRepository.findById(username).get().getPassword().equals(password)) {
+                return true;
+            }
+        }catch(Exception E){
+            return false;
         }
+        
 
         return false;
     }
