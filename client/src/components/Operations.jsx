@@ -20,7 +20,7 @@ const Operations = () => {
     }
 
     const redirectBranchDetails = (e)=>{
-        console.log(e.target.name)
+        navigate("/tablebranch");
     }
 
     const redirectAddCustomer = (e)=>{
@@ -28,7 +28,7 @@ const Operations = () => {
     }
 
     const redirectAddBranch = (e)=>{
-        console.log(e.target.name)
+        navigate("/newbranch");
     }
 
     return (
