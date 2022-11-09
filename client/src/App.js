@@ -18,11 +18,14 @@ import { Link } from "react-router-dom";
 
 import Login from './components/Login';
 import Operations from './components/Operations';
-
+import axios from "axios";
 
 
 const App = () => {
+ axios.get("/api/admin/customers").then(({response}) => { setCustomerDetails(response.data);}).catch((error) => {console.log(error)});
+     
   const [customerDetails, setCustomerDetails] = useState(data);
+
   const [addFormData, setAddFormData] = useState({
     AccountNo: '',
   CustomerNo: '',
@@ -65,52 +68,50 @@ const App = () => {
     setEditFormData(newFormData);
   };
 
-  const handleAddFormSubmit = (event) => {
+  
+
+
+const handleAddFormSubmit = async (e) => {
+  e.preventDefault();
+  console.log(userName, password);
+  
+  let res = await axios.post("/api/admin/customers/account",{
+      "accountNumber":newCustomerDetails.AccountNo,
+      "customerNumber":newCustomerDetails.CustomerNo,
+      "branchId":newCustomerDetails.BranchId,
+      "openingBalance":newCustomerDetails.Balance,
+      "accountOpeningDate":newCustomerDetails.OpeningDate,
+      "accountType":newCustomerDetails.accountType,
+      "accountStatus": newCustomerDetails.accountStatus,
+  });
+  console.log(res.data);
+  if(res.data===true){
+      const newDetails =await  axios.get("/api/admin/customers");
+      setCustomerDetails(newDetails);
+  }
+
+
+}
+
+  const handleEditFormSubmit =async (event) => {
     event.preventDefault();
-    const select = document.querySelector("select");
-const value = select.options[select.selectedIndex].value;
-const text = select.options[select.selectedIndex].text;
 
-    const newCustomerDetails = {
-      id: nanoid(),
-      AccountNo: addFormData.AccountNo,
-    CustomerNo: addFormData.CustomerNo,
-    BranchId: text,
-    Balance: addFormData.Balance,
-    OpeningDate: addFormData.OpeningDate,
-
-
-    };
-
-  const newDetails = [...customerDetails, newCustomerDetails];
-    setCustomerDetails(newDetails);
+    let res = await axios.post("/api/admin/customers/account",{
+      "accountNumber":editFormData.AccountNo,
+      "customerNumber":editFormData.CustomerNo,
+      "branchId":editFormData.BranchId,
+      "openingBalance":editFormData.Balance,
+      "accountOpeningDate":editFormData.OpeningDate,
+      "accountType":editFormData.accountType,
+      "accountStatus": editFormData.accountStatus,
+  });
+  console.log(res.data);
+  if(res.data===true){
+      const newDetails =await  axios.get("/api/admin/customers");
+      setCustomerDetails(newDetails);
+  }
 
    
-
-    
-
-    
-  };
-
-  const handleEditFormSubmit = (event) => {
-    event.preventDefault();
-
-    const editedDetails = {
-      id: editDetailsId,
-      AccountNo: editFormData.AccountNo,
-      CustomerNo: editFormData.CustomerNo,
-      BranchId: editFormData.BranchId,
-      Balance: editFormData.Balance,
-      OpeningDate: editFormData.OpeningDate
-    };
-
-    const newDetails = [...customerDetails];
-
-    const index = customerDetails.findIndex((details) => details.id === editDetailsId);
-
-    newDetails[index] = editedDetails;
-
-    setCustomerDetails(newDetails);
     setEditDetailsId(null);
     
   };
@@ -189,7 +190,7 @@ const text = select.options[select.selectedIndex].text;
 
     
   );
-  };
+};
 
 
 export default App;
