@@ -11,7 +11,7 @@ const EditableRow = ({
       <input 
                 type = "text"
                 required="required"
-                placeholder="Enter Account Number"
+                placeholder="Enter Branch"
                 name = "BranchId"
                 value={editFormData.BranchId}
                 onChange={handleEditFormChange}
@@ -21,7 +21,7 @@ const EditableRow = ({
       <input 
                 type = "text"
                 required="required"
-                placeholder="Enter Customer Number"
+                placeholder="Enter Name"
                 name = "Name"
                 value={editFormData.Name}
                 onChange={handleEditFormChange}
@@ -31,7 +31,7 @@ const EditableRow = ({
       <input 
                 type = "text"
                 required="required"
-                placeholder="Enter Branch Id"
+                placeholder="Enter City"
                 name = "City"
                 value={editFormData.City}
                 onChange={handleEditFormChange}
