@@ -1,0 +1,174 @@
+.app-container {
+    display:contents;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+    height: 200vh;
+  }
+  
+  .form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout:fixed;
+  }
+  
+  th,
+  td {
+    overflow: hidden; 
+      text-overflow: ellipsis; 
+      word-wrap: break-word;
+    border: 1px solid #ffffff;
+    text-align: center;
+    padding: 8px;
+    font-size: 25px;
+  }
+  
+  th {
+    background-color: rgb(176, 238, 34);
+  }
+  
+  td {
+    background-color: rgb(230, 238, 213);
+  }
+  
+  form {
+    display: flex;
+    gap: 5px;
+  }
+  
+  form td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  form * {
+    font-size: 28px;
+  }
+  
+  .header {
+    font-size: 3em;
+    color: green;
+    text-align: center;
+  }
+  
+  .button {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  label{
+    display: block;
+    clear: both;
+  }
+  
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    clear: both;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #172518;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  button {
+    display: inline-block;
+    border-radius: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  .c {
+    text-decoration: underline;
+    text-align: center;
+    width: 100%;
+    background-color: #4CAF50;
+    color: rgb(246, 244, 250);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    clear: both;
+    font-size: 25px;
+  }
+  
+  .btn {
+    width: 100%;
+    font-size: 24px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+  }
+  
+  .btn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  
+  .header-1 {
+        padding: 30px;
+        text-align: center;
+        background: #bc1a6b;
+        color: white;
+        font-size: 30px;
+     }
+  
+     .footer {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      color: rgb(250, 241, 241);
+      text-align: center;
+      background-color: green;
+      }
+  
+      .list {
+        list-style-type:none; 
+        padding-inline-start: 0px
+      }
