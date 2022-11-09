@@ -17,19 +17,15 @@ import { Link } from "react-router-dom";
 const App = () => {
   const [customerDetails, setCustomerDetails] = useState(data);
   const [addFormData, setAddFormData] = useState({
-    AccountNo: '',
-  CustomerNo: '',
-  BranchId: '',
-  Balance: '',
-  OpeningDate:''
+   BranchId: '',
+   Name: '',
+   City: ''
   });
 
   const [editFormData, setEditFormData] = useState({
-    AccountNo: '',
-  CustomerNo: '',
-  BranchId: '',
-  Balance: '',
-  OpeningDate:''
+    BranchId: '',
+    Name: '',
+    City: ''
   });
 
   const [editDetailsId, setEditDetailsId] = useState(null);
@@ -66,12 +62,10 @@ const text = select.options[select.selectedIndex].text;
 
     const newCustomerDetails = {
       id: nanoid(),
-      AccountNo: addFormData.AccountNo,
-    CustomerNo: addFormData.CustomerNo,
-    BranchId: text,
-    Balance: addFormData.Balance,
-    OpeningDate: addFormData.OpeningDate,
-    };
+      BranchId: addFormData.BranchId,
+    Name: addFormData.Name,
+    City: text,
+     };
 
     
 
@@ -84,11 +78,10 @@ const text = select.options[select.selectedIndex].text;
 
     const editedDetails = {
       id: editDetailsId,
-      AccountNo: editFormData.AccountNo,
-      CustomerNo: editFormData.CustomerNo,
       BranchId: editFormData.BranchId,
-      Balance: editFormData.Balance,
-      OpeningDate: editFormData.OpeningDate
+      Name: editFormData.Name,
+      City: editFormData.City,
+      
     };
 
     const newDetails = [...customerDetails];
@@ -106,11 +99,9 @@ const text = select.options[select.selectedIndex].text;
     setEditDetailsId(details.id);
 
     const formValues = {
-      AccountNo: details.AccountNo,
-    CustomerNo: details.CustomerNo,
-    BranchId: details.BranchId,
-    Balance: details.Balance,
-    OpeningDate: details.OpeningDate
+      BranchId: details.BranchId,
+    Name: details.Name,
+    City: details.City,
     };
 
     setEditFormData(formValues);

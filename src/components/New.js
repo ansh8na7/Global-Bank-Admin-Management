@@ -6,7 +6,7 @@ import EditableRow from "./EditableRow";
 import ReadOnlyRow from "./ReadOnlyRow";
 
 
-const New = ({customerDetails,addFormData, handleAddFormChange, handleAddFormSubmit}) => {
+const New = ({handleAddFormChange, handleAddFormSubmit}) => {
    
 return (
     <div className="app-container"> 
@@ -18,54 +18,20 @@ return (
     <p>Please fill in this form to create a customer account.</p>
     <hr></hr>
 
-    <label for="accountNo"><b>Account Number</b></label>
-    <input type="text" placeholder="Enter Account Number" name="AccountNo" id="accountNo" required onChange={handleAddFormChange}></input>
-
-    <label for="customerNo"><b>Customer Number</b></label>
-    <input type="text" placeholder="Enter Customer Number" name="CustomerNo" id="customerNo" required onChange={handleAddFormChange}></input>
-
     <label for="BranchId"><b>Branch Id</b></label>
-<select type="text" id="branch" name="branch">
+    <input type="text" placeholder="Enter Account Number" name="BranchId" id="BranchId" required onChange={handleAddFormChange}></input>
+
+    <label for="Name"><b>Customer Number</b></label>
+    <input type="text" placeholder="Enter Customer Number" name="Name" id="Name" required onChange={handleAddFormChange}></input>
+
+    <label for="City"><b>City</b></label>
+<select type="text" id="City" name="City">
 <option value="" disabled selected required>Select your option</option>
-<option value="b001">b001</option>
-<option value="b002">b002</option>
-<option value="b003">b003</option>
-<option value="b004">b004</option>
-<option value="b005">b005</option>
+<option value="Delhi">Delhi</option>
+<option value="Mumbai">Mumbai</option>
+<option value="Chennai">b003</option>
 </select>
 
-<label for="Balance"><b>Opening Balance</b></label>
-<input 
-  type="number" 
-  name="Balance" 
-  required="required" 
-  placeholder="Enter Opening Balance"
-  min="5000"
-  onChange={handleAddFormChange}
-  />
-
-<label for="OpeningDate"><b>Account Opening Date</b></label>
-<input 
-  type="date" 
-  name="OpeningDate" 
-  required="required" 
-  placeholder="Enter Account Opening Date"
-  onChange={handleAddFormChange}
-  />
-
-<label for="AccountType"><b>Account Type</b></label>
-<select id="type" name="type">
-<option value="" disabled selected required>Select your option</option>
-<option value="saving">Saving</option>
-<option value="current">Current</option>
-</select>
-
-<label for="AccountStatus"><b>Account Status</b></label>
-<select id="status" name="status">
-<option value="" disabled selected required>Select your option</option>
-<option value="active">Active</option>
-<option value="inactive">Inactive</option>
-</select>
 
 
 <hr></hr>

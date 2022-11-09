@@ -13,11 +13,9 @@ const Table = ({customerDetails,editDetailsId, handleEditFormSubmit, editFormDat
         border cellspacing="0">
           <thead>
             <tr>
-            <th>AccountNo</th>
-            <th>CustomerNo</th>
             <th>BranchId</th>
-            <th>Balance</th>
-            <th>OpeningDate</th>
+            <th>Name</th>
+            <th>City</th>
             <th>Action</th>
             </tr>
           </thead>

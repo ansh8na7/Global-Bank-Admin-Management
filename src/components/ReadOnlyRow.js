@@ -4,11 +4,10 @@ import "../App.css"
 const ReadOnlyRow = ({ details, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
-            <td>{details.AccountNo}</td>
-            <td>{details.CustomerNo}</td>
             <td>{details.BranchId}</td>
-            <td>{details.Balance}</td>
-            <td>{details.OpeningDate}</td>
+            <td>{details.Name}</td>
+            <td>{details.City}</td>
+           
             <td>
             <button
                 type="button"
