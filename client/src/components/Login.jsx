@@ -72,7 +72,7 @@ function Login(props) {
                 <button type="button" className="btn btn-primary btn-block mb-4" onClick={onSubmit}>Sign in</button>
             </form>
             {loginError && <div className="alert alert-danger alert-dismissible d-flex align-items-center fade show">
-                <strong className="mx-2">Error!</strong> A problem has been occurred while submitting your data.
+                <strong className="mx-2">Invalid Credentials!</strong> Please enter correct credentials or contact the technical team.
                 <button type="button" className="btn-close" data-bs-dismiss="alert"></button>
             </div>}
 
