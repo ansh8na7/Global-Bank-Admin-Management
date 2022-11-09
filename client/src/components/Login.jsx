@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import isLoggedIn from "../auth/loginAuth";
 
 function Login(props) {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      
+        if(isLoggedIn()){
+            navigate("/operations");
+        }
+    })
+    
+
     const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("")
+    const [password, setPassword] = useState("");
     const onSubmit = async (e) => {
         e.preventDefault();
         console.log(userName, password);

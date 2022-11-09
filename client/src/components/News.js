@@ -1,12 +1,23 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
 import "../App.css";
 import data from "../mock-data.json";
 import EditableRow from "./EditableRows";
 import ReadOnlyRow from "./ReadOnlyRows";
+import isLoggedIn from "../auth/loginAuth";
+import { useNavigate } from "react-router-dom";
 
 
 const News = ({ handleAddFormChange, handleAddFormSubmit}) => {
+
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+      
+    if(!isLoggedIn()){
+        navigate("/");
+    }
+})
 
   
    

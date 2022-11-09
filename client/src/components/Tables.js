@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css"
 import { Fragment } from "react";
 import EditableRows from "./EditableRows";
 import ReadOnlyRows from "./ReadOnlyRows";
+import isLoggedIn from "../auth/loginAuth";
+import { useNavigate } from "react-router-dom";
 
 const MediaTrackCapabilities = ({customerDetails,editDetailsId, handleEditFormSubmit, editFormData,handleEditFormChange , handleCancelClick, handleEditClick, handleDeleteClick}) => {
+  
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+      
+    if(!isLoggedIn()){
+        navigate("/");
+    }
+})
+
+  
   return (
     <div className="app-container"> 
       <h1 class="c">Customer Details</h1>
