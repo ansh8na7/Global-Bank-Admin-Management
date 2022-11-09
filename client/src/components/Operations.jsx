@@ -16,7 +16,7 @@ const Operations = () => {
     
 
     const redirectCustomerDetails = (e)=>{
-        console.log(e.target.name)
+        navigate("/table");
     }
 
     const redirectBranchDetails = (e)=>{
@@ -24,7 +24,7 @@ const Operations = () => {
     }
 
     const redirectAddCustomer = (e)=>{
-        console.log(e.target.name)
+        navigate("/new");
     }
 
     const redirectAddBranch = (e)=>{

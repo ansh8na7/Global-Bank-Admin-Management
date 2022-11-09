@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import "../App.css";
 import data from "../mock-data.json";
-import EditableRow from "./EditableRow";
+import EditableRow from "./EditableRows";
 import ReadOnlyRow from "./ReadOnlyRows";
 
 
