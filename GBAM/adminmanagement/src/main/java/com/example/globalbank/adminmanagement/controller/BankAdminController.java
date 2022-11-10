@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.globalbank.adminmanagement.entity.Account;
 import com.example.globalbank.adminmanagement.entity.Branch;
-import com.example.globalbank.adminmanagement.entity.Customer;
 import com.example.globalbank.adminmanagement.entity.UserAdmin;
 import com.example.globalbank.adminmanagement.service.BranchService;
 import com.example.globalbank.adminmanagement.service.CustomerService;
@@ -36,7 +35,7 @@ public class BankAdminController {
     }
 
     @GetMapping("/api/admin/customers")
-    public List<Customer> getCustomers() {
+    public List<Account> getCustomers() {
         return customerService.getAllCustomers();
     }
 

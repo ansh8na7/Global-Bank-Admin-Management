@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.globalbank.adminmanagement.entity.Account;
-import com.example.globalbank.adminmanagement.entity.Customer;
 import com.example.globalbank.adminmanagement.repository.CustomerRepository;
 
 @Service
@@ -19,8 +18,8 @@ public class CustomerServiceImpl implements CustomerService {
     AccountService accountService;
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+    public List<Account> getAllCustomers() {
+        return accountService.getAllAccounts();
     }
 
     @Override

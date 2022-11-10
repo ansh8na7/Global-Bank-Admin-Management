@@ -1,5 +1,7 @@
 package com.example.globalbank.adminmanagement.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,11 @@ public class AccountServiceImpl implements AccountService {
         Account account = accountRepository.findById(accountNo).get(); 
         accountRepository.deleteById(accountNo);
         return account;
+    }
+
+    @Override
+    public List<Account> getAllAccounts() {
+        return accountRepository.findAll();
     }
     
 }
