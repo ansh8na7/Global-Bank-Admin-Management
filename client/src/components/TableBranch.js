@@ -6,7 +6,7 @@ import ReadOnlyRowBranch from "./ReadOnlyRowBranch";
 import { useNavigate } from "react-router-dom";
 import isLoggedIn from "../auth/loginAuth";
 
-const TableBranch = ({customerDetailsBranch,editDetailsIdBranch, handleEditFormSubmitBranch, editFormDataBranch,handleEditFormChangeBranch , handleCancelClickBranch, handleEditClickBranch, handleDeleteClickBranch}) => {
+const TableBranch = ({customerDetailsBranch,branchDetails,editDetailsIdBranch, handleEditFormSubmitBranch, editFormDataBranch,handleEditFormChangeBranch , handleCancelClickBranch, handleEditClickBranch, handleDeleteClickBranch}) => {
   
   const navigate = useNavigate()
 
@@ -18,8 +18,6 @@ const TableBranch = ({customerDetailsBranch,editDetailsIdBranch, handleEditFormS
     })
     
 
-
-  
   return (
     <div className="app-container"> 
       <h1 className="c">Branch Details</h1>
@@ -35,10 +33,11 @@ const TableBranch = ({customerDetailsBranch,editDetailsIdBranch, handleEditFormS
             </tr>
           </thead>
           <tbody>
-            {customerDetailsBranch.map((details) => (
+            {branchDetails.map((details) => (
               <Fragment>
                 {editDetailsIdBranch === details.id ? (
                   <EditableRowBranch
+
                     editFormDataBranch={editFormDataBranch}
                     handleEditFormChangeBranch={handleEditFormChangeBranch}
                     handleCancelClickBranch={handleCancelClickBranch}

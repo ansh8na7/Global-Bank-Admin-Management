@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css"
 
 const ReadOnlyRows = ({ details, handleEditClick, handleDeleteClick }) => {
-  console.log(details)
+  // console.log(details)
 
   return (
     <tr>

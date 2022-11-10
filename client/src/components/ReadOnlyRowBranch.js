@@ -4,9 +4,9 @@ import "../App.css"
 const ReadOnlyRowBranch = ({ details, handleEditClickBranch, handleDeleteClickBranch }) => {
   return (
     <tr>
-            <td>{details.BranchId}</td>
-            <td>{details.Name}</td>
-            <td>{details.City}</td>
+            <td>{details.branchId}</td>
+            <td>{details.branchName}</td>
+            <td>{details.branchCity}</td>
            
             <td>
             <button

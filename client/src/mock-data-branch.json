@@ -3,5 +3,10 @@
       "BranchId":1,
       "Name":"As",
       "City":"Delhi"    
-    }
+    },
+    {
+        "BranchId":2,
+        "Name":"Assad",
+        "City":"Delhi"    
+      }
   ]
