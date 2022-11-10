@@ -222,18 +222,18 @@ const App = () => {
 
     let res = await axios.post("/api/admin/branches", {
       "BranchId": editFormDataBranch.BranchId,
-      "Name": editFormDataBranch.Name,
-      "City": editFormDataBranch.City,
+      "BranchName": editFormDataBranch.Name,
+      "BranchCity": editFormDataBranch.City,
 
     });
     // console.log(res.data);
     if (res.data === true) {
       const newDetails = await axios.get("/api/admin/branches");
-      setCustomerDetails(newDetails);
+      setBranchDetails(newDetails);
     }
 
 
-    setEditDetailsId(null);
+    seteditDetailsIdBranch(null);
 
   };
 
@@ -255,12 +255,12 @@ const App = () => {
 
   const handleEditClickBranch = (event, details) => {
     event.preventDefault();
-    setEditDetailsId(details.id);
+    seteditDetailsIdBranch(details.id);
 
     const formValues = {
       BranchId: details.BranchId,
-      Name: details.Name,
-      City: details.City
+      BranchName: details.Name,
+      BranchCity: details.City
     };
 
     seteditFormDataBranch(formValues);
@@ -269,18 +269,36 @@ const App = () => {
   const handleCancelClick = () => {
     setEditDetailsId(null);
   };
-
+  const handleCancelClickBranch = () => {
+    seteditDetailsIdBranch(null);
+  }; 
   const handleDeleteClick = (detailsId) => {
     const newDetails = [...customerDetails];
-
     const index = customerDetails.findIndex((details) => details.id === detailsId);
-
     newDetails.splice(index, 1);
-
     setCustomerDetails(newDetails);
 
+    // let res=axios.delete("/api/admin/customers/account/{account_no}");
+    //  if(res.data===true){
+         
+    //   const newDetails = await axios.get("/api/admin/customers");
+    //   setCustomerDetails(newDetails);
   };
 
+  const handleDeleteClickBranch = (detailsId) => {
+    const newDetails = [...branchDetails];
+    const index = branchDetails.findIndex((details) => details.id === detailsId);
+    newDetails.splice(index, 1);
+    setBranchDetails(newDetails);
+
+    // let res=axios.delete("/api/admin/customers/account/{account_no}");
+    //  if(res.data===true){
+         
+    //   const newDetails = await axios.get("/api/admin/customers");
+    //   setCustomerDetails(newDetails);
+  };
+ 
+   
   return (
     <div className="app-container">
 
@@ -306,15 +324,15 @@ const App = () => {
           <Route path="/newbranch" element={<NewBranch customerdetails={customerDetails}
             handleAddFormChangeBranch={handleAddFormChangeBranch}
             handleAddFormSubmitBranch={handleAddFormSubmitBranch} />}></Route>
-          <Route path="/tablebranch" element={<TableBranch customerDetailsBranch={customerDetails}
+          <Route path="/tablebranch" element={<TableBranch 
             branchDetails={branchDetails}
             editDetailsIdBranch={editDetailsIdBranch}
             handleEditFormSubmitBranch={handleEditFormSubmitBranch}
             editFormDataBranch={editFormDataBranch}
             handleEditFormChangeBranch={handleEditFormChangeBranch}
-            handleCancelClick={handleCancelClick}
+            handleCancelClickBranch={handleCancelClickBranch}
             handleEditClickBranch={handleEditClickBranch}
-            handleDeleteClick={handleDeleteClick}></TableBranch>}></Route>
+            handleDeleteClickBranch={handleDeleteClickBranch}></TableBranch>}></Route>
 
         </Routes>
       </BrowserRouter>
