@@ -26,11 +26,11 @@ const MediaTrackCapabilities = ({customerDetails,editDetailsId, handleEditFormSu
         border cellspacing="0">
           <thead>
             <tr>
-            <th>AccountNo</th>
-            <th>CustomerNo</th>
-            <th>BranchId</th>
-            <th>Balance</th>
-            <th>OpeningDate</th>
+            <th>Account No</th>
+            <th>Customer No</th>
+            <th>Branch Id</th>
+            <th>Opening Balance</th>
+            <th>Opening Date</th>
             <th>Action</th>
             </tr>
           </thead>

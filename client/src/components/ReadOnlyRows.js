@@ -6,11 +6,11 @@ const ReadOnlyRows = ({ details, handleEditClick, handleDeleteClick }) => {
 
   return (
     <tr>
-            <td>{details.AccountNo}</td>
+            <td>{details.accountNumber}</td>
             <td>{details.customerNumber}</td>
             <td>{details.branchId}</td>
-            <td>{details.balance}</td>
-            <td>{details.openingDate}</td>
+            <td>{details.openingBalance}</td>
+            <td>{details.accountOpeningDate}</td>
             <td>
             <button
                 type="button"
