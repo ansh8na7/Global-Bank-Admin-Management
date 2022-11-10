@@ -34,7 +34,7 @@ useEffect(() => {
 
   const fetchCustomerData = async()=>{
     let res = await axios.get("/api/admin/customers");
-    console.log(res.data);
+    // console.log(res.data);
     setCustomerDetails(res.data);
   }
 
@@ -85,6 +85,9 @@ useEffect(() => {
   const handleAddFormChangeBranch = (event) => {
     event.preventDefault();
 
+    // console.log("Change form: branch")
+    // console.log(event.target.name,event.target.value);
+
     const fieldName = event.target.getAttribute("name");
     const fieldValue = event.target.value;
 
@@ -132,7 +135,7 @@ const handleAddFormSubmit = async (e) => {
       "accountType":addFormData.accountType,
       "accountStatus": addFormData.accountStatus,
   });
-  console.log(res.data);
+  // console.log(res.data);
   if(res.data===true){
       const newDetails =await  axios.get("/api/admin/customers");
       setCustomerDetails(newDetails);
@@ -144,15 +147,21 @@ const handleAddFormSubmit = async (e) => {
 
 const handleAddFormSubmitBranch = async (e) => {
   e.preventDefault();
+  let obj = {
+    "branchId":addFormDataBranch.BranchId,
+      "branchName":addFormDataBranch.Name,
+      "branchCity":addFormDataBranch.City,
+  }
+  // console.log(obj);
 
   let res = await axios.post("/api/admin/branches",{
       
       "branchId":addFormDataBranch.BranchId,
-      "Name":addFormDataBranch.Name,
-      "City":addFormDataBranch.City,
+      "branchName":addFormDataBranch.Name,
+      "branchCity":addFormDataBranch.City,
      
   });
-  console.log(res.data);
+  // console.log(res.data);
   if(res.data===true){
       const newDetails =await  axios.get("/api/admin/branches");
       setCustomerDetails(newDetails);
@@ -173,7 +182,7 @@ const handleAddFormSubmitBranch = async (e) => {
       "accountType":editFormData.accountType,
       "accountStatus": editFormData.accountStatus,
   });
-  console.log(res.data);
+  // console.log(res.data);
   if(res.data===true){
       const newDetails =await  axios.get("/api/admin/customers");
       setCustomerDetails(newDetails);
@@ -193,7 +202,7 @@ const handleAddFormSubmitBranch = async (e) => {
       "City":editFormDataBranch.City,
       
   });
-  console.log(res.data);
+  // console.log(res.data);
   if(res.data===true){
       const newDetails =await  axios.get("/api/admin/branches");
       setCustomerDetails(newDetails);

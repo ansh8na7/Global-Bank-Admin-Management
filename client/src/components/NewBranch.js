@@ -34,7 +34,7 @@ return (
     <input type="text" placeholder="Enter Branch Name" name="Name" id="Name" required onChange={handleAddFormChangeBranch}></input>
 
     <label for="City"><b>City</b></label>
-<select type="text" id="City" name="City">
+<select id="City" name="City" onChange={handleAddFormChangeBranch}>
 <option value="" disabled selected required>Select your option</option>
 <option value="Delhi">Delhi</option>
 <option value="Mumbai">Mumbai</option>

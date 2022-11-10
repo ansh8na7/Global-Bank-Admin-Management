@@ -27,11 +27,11 @@ return (
     <div className="app-container"> 
 
     
-<h1 class="c">Open a Customer Account</h1>
+<h1 className="c">Open a Customer Account</h1>
       <div className="form">
 
       <form id="my_form" onSubmit={handleAddFormSubmit}>
-  <div class="container">
+  <div className="container">
     <p>Please fill in this form to create a customer account.</p>
     <hr></hr>
 
@@ -88,7 +88,7 @@ return (
 <hr></hr>
     <p>Once created, this customer account will be added to the table of already existing customer of this Bank.</p>
 
-    <button type="submit" id="butn" class="button btn" >Add</button>
+    <button type="submit" id="butn" className="button btn" >Add</button>
   </div>
   
   
