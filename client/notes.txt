@@ -13,4 +13,4 @@ useEffect(() => {
   
   
   this is in app.js
-  branchDetails also need to be created adn injected in the same manner
+  branchDetails also need to be created and injected in the same manner
