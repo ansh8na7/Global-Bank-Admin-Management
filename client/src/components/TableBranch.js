@@ -22,10 +22,10 @@ const TableBranch = ({customerDetailsBranch,editDetailsIdBranch, handleEditFormS
   
   return (
     <div className="app-container"> 
-      <h1 class="c">Branch Details</h1>
+      <h1 className="c">Branch Details</h1>
       <form onSubmit={handleEditFormSubmitBranch}>
         <table width="70%" height="170px" 
-        border cellspacing="0">
+        border='true' cellSpacing="0">
           <thead>
             <tr>
             <th>BranchId</th>

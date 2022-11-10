@@ -36,6 +36,7 @@ useEffect(() => {
     let res = await axios.get("/api/admin/customers");
     // console.log(res.data);
     setCustomerDetails(res.data);
+    // console.log("customer details:",customerDetails)
   }
 
 
@@ -282,7 +283,7 @@ const handleAddFormSubmitBranch = async (e) => {
          <Route path="/newbranch" element={<NewBranch customerdetails={customerDetails}
                     handleAddFormChangeBranch={handleAddFormChangeBranch}
                     handleAddFormSubmitBranch={handleAddFormSubmitBranch}/>}></Route>
-        <Route path="/tablebranch" element={<TableBranch customerDetails={customerDetails}
+        <Route path="/tablebranch" element={<TableBranch customerDetailsBranch={customerDetails}
       editDetailsIdBranch={editDetailsIdBranch}
       handleEditFormSubmitBranch={handleEditFormSubmitBranch}
       editFormDataBranch={editFormDataBranch}

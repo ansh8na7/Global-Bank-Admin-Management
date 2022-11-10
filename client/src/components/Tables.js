@@ -20,10 +20,10 @@ const MediaTrackCapabilities = ({customerDetails,editDetailsId, handleEditFormSu
   
   return (
     <div className="app-container"> 
-      <h1 class="c">Customer Details</h1>
+      <h1 className="c">Customer Details</h1>
       <form onSubmit={handleEditFormSubmit}>
         <table width="70%" height="170px" 
-        border cellspacing="0">
+        border cellSpacing="0">
           <thead>
             <tr>
             <th>Account No</th>

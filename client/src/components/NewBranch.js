@@ -19,11 +19,11 @@ const NewBranch = ({handleAddFormChangeBranch, handleAddFormSubmitBranch}) => {
 
 return (
     <div className="app-container"> 
-<h1 class="c">Open a Branch</h1>
+<h1 className="c">Open a Branch</h1>
       <div className="form">
 
       <form onSubmit={handleAddFormSubmitBranch}>
-  <div class="container">
+  <div className="container">
     <p>Please fill in this form to create a branch.</p>
     <hr></hr>
 
