@@ -1,0 +1,12 @@
+ const [customerDetails, setCustomerDetails] = useState(data);
+
+useEffect(() => {
+  fetchCustomerData(); 
+ 
+},[])
+    
+
+  const fetchCustomerData = async()=>{
+    let res = await axios.get("/api/admin/customers");
+    setCustomerDetails(res.data);
+  }

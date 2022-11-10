@@ -34,9 +34,7 @@ useEffect(() => {
 
   const fetchCustomerData = async()=>{
     let res = await axios.get("/api/admin/customers");
-    // console.log(res.data);
     setCustomerDetails(res.data);
-    // console.log("customer details:",customerDetails)
   }
 
 
