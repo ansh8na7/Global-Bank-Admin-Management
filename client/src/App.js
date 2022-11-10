@@ -26,14 +26,24 @@ const App = () => {
 
   const [customerDetails, setCustomerDetails] = useState(data);
 
+
 useEffect(() => {
   fetchCustomerData(); 
+  fetchCustomerDataBranch();
  
 },[])
     
 
   const fetchCustomerData = async()=>{
     let res = await axios.get("/api/admin/customers");
+    // console.log(res.data);
+    setCustomerDetails(res.data);
+    // console.log("customer details:",customerDetails)
+  }
+
+
+  const fetchCustomerDataBranch = async()=>{
+    let res = await axios.get("/api/admin/branches");
     // console.log(res.data);
     setCustomerDetails(res.data);
     // console.log("customer details:",customerDetails)
