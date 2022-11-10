@@ -47,6 +47,12 @@ useEffect(() => {
   OpeningDate:''
   });
 
+  const [addFormDataBranch, setAddFormDataBranch] = useState({
+    BranchId: '',
+  Name:'',
+  City:''
+  });
+
   const [editFormData, setEditFormData] = useState({
     AccountNo: '',
   CustomerNo: '',
@@ -55,7 +61,14 @@ useEffect(() => {
   OpeningDate:''
   });
 
+  const [editFormDataBranch, seteditFormDataBranch] = useState({
+    BranchId: '',
+  Name: '',
+  City: ''
+  });
+
   const [editDetailsId, setEditDetailsId] = useState(null);
+  const [editDetailsIdBranch, seteditDetailsIdBranch] = useState(null);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -69,6 +82,19 @@ useEffect(() => {
     setAddFormData(newFormData);
   };
 
+  const handleAddFormChangeBranch = (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...addFormDataBranch };
+    newFormData[fieldName] = fieldValue;
+
+    setAddFormDataBranch(newFormData);
+  };
+
+
   const handleEditFormChange = (event) => {
     event.preventDefault();
 
@@ -81,7 +107,17 @@ useEffect(() => {
     setEditFormData(newFormData);
   };
 
-  
+  const handleEditFormChangeBranch = (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
+
+    const newFormData = { ...editFormDataBranch };
+    newFormData[fieldName] = fieldValue;
+
+    seteditFormDataBranch(newFormData);
+  };
 
 
 const handleAddFormSubmit = async (e) => {
@@ -99,6 +135,26 @@ const handleAddFormSubmit = async (e) => {
   console.log(res.data);
   if(res.data===true){
       const newDetails =await  axios.get("/api/admin/customers");
+      setCustomerDetails(newDetails);
+      // navigate("/table");
+    
+  }
+}
+
+
+const handleAddFormSubmitBranch = async (e) => {
+  e.preventDefault();
+
+  let res = await axios.post("/api/admin/branches",{
+      
+      "branchId":addFormDataBranch.BranchId,
+      "Name":addFormDataBranch.Name,
+      "City":addFormDataBranch.City,
+     
+  });
+  console.log(res.data);
+  if(res.data===true){
+      const newDetails =await  axios.get("/api/admin/branches");
       setCustomerDetails(newDetails);
       // navigate("/table");
     
@@ -128,6 +184,26 @@ const handleAddFormSubmit = async (e) => {
     
   };
 
+  const handleEditFormSubmitBranch =async (event) => {
+    event.preventDefault();
+
+    let res = await axios.post("/api/admin/branches",{
+      "BranchId":editFormDataBranch.BranchId,
+      "Name":editFormDataBranch.Name,
+      "City":editFormDataBranch.City,
+      
+  });
+  console.log(res.data);
+  if(res.data===true){
+      const newDetails =await  axios.get("/api/admin/branches");
+      setCustomerDetails(newDetails);
+  }
+
+   
+    setEditDetailsId(null);
+    
+  };
+
   const handleEditClick = (event, details) => {
     event.preventDefault();
     setEditDetailsId(details.id);
@@ -141,6 +217,20 @@ const handleAddFormSubmit = async (e) => {
     };
 
     setEditFormData(formValues);
+  };
+
+  
+  const handleEditClickBranch = (event, details) => {
+    event.preventDefault();
+    setEditDetailsId(details.id);
+
+    const formValues = {
+    BranchId: details.BranchId,
+    Name: details.Name,
+    City: details.City
+    };
+
+    seteditFormDataBranch(formValues);
   };
 
   const handleCancelClick = () => {
@@ -181,16 +271,16 @@ const handleAddFormSubmit = async (e) => {
                     handleAddFormChange={handleAddFormChange}
                     handleAddFormSubmit={handleAddFormSubmit}/>}></Route>
          <Route path="/newbranch" element={<NewBranch customerdetails={customerDetails}
-                    handleAddFormChange={handleAddFormChange}
-                    handleAddFormSubmit={handleAddFormSubmit}/>}></Route>
-        <Route path="/tablebranch" element={<TableBranch customerDetailsBranch={customerDetails}
-      editDetailsIdBranch={editDetailsId}
-      handleEditFormSubmitBranch={handleEditFormSubmit}
-      editFormDataBranch={editFormData}
-      handleEditFormChangeBranch={handleEditFormChange}
-      handleCancelClickBranch={handleCancelClick}
-      handleEditClickBranch={handleEditClick}
-      handleDeleteClickBranch={handleDeleteClick}></TableBranch>}></Route>   
+                    handleAddFormChangeBranch={handleAddFormChangeBranch}
+                    handleAddFormSubmitBranch={handleAddFormSubmitBranch}/>}></Route>
+        <Route path="/tablebranch" element={<TableBranch customerDetails={customerDetails}
+      editDetailsIdBranch={editDetailsIdBranch}
+      handleEditFormSubmitBranch={handleEditFormSubmitBranch}
+      editFormDataBranch={editFormDataBranch}
+      handleEditFormChangeBranch={handleEditFormChangeBranch}
+      handleCancelClick={handleCancelClick}
+      handleEditClickBranch={handleEditClickBranch}
+      handleDeleteClick={handleDeleteClick}></TableBranch>}></Route>   
        
       </Routes>
     </BrowserRouter>
