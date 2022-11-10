@@ -10,3 +10,7 @@ useEffect(() => {
     let res = await axios.get("/api/admin/customers");
     setCustomerDetails(res.data);
   }
+  
+  
+  this is in app.js
+  branchDetails also need to be created adn injected in the same manner
