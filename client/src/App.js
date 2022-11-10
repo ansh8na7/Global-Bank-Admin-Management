@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
 import "./App.css";
-import data from "./mock-data.json";
+import data from "./mock-data-branch.json";
 import EditableRow from "./components/EditableRows";
 import ReadOnlyRow from "./components/ReadOnlyRows";
 import News from "./components/News";
@@ -156,27 +156,45 @@ const handleAddFormSubmit = async (e) => {
 
 const handleAddFormSubmitBranch = async (e) => {
   e.preventDefault();
-  let obj = {
-    "branchId":addFormDataBranch.BranchId,
-      "branchName":addFormDataBranch.Name,
-      "branchCity":addFormDataBranch.City,
-  }
-  // console.log(obj);
+  // let obj = {
+  //   "branchId":addFormDataBranch.BranchId,
+  //     "branchName":addFormDataBranch.Name,
+  //     "branchCity":addFormDataBranch.City,
+  // }
+  // // console.log(obj);
 
-  let res = await axios.post("/api/admin/branches",{
+  // let res = await axios.post("/api/admin/branches",{
       
-      "branchId":addFormDataBranch.BranchId,
-      "branchName":addFormDataBranch.Name,
-      "branchCity":addFormDataBranch.City,
+  //     "branchId":addFormDataBranch.BranchId,
+  //     "branchName":addFormDataBranch.Name,
+  //     "branchCity":addFormDataBranch.City,
      
-  });
-  // console.log(res.data);
-  if(res.data===true){
-      const newDetails =await  axios.get("/api/admin/branches");
-      setCustomerDetails(newDetails);
-      // navigate("/table");
+  // });
+  // // console.log(res.data);
+  // if(res.data===true){
+  //     const newDetails =await  axios.get("/api/admin/branches");
+  //     setCustomerDetails(newDetails);
+  //     // navigate("/table");
     
-  }
+  // }
+
+  const select = document.querySelector("select");
+  const value = select.options[select.selectedIndex].value;
+  const text = select.options[select.selectedIndex].text;
+  
+      const newCustomerDetails = {
+        id: nanoid(),
+      BranchId: addFormDataBranch.BranchId,
+      Name: addFormDataBranch.Name,
+      City: addFormDataBranch.City,
+  
+  
+      };
+  
+    const newDetails = [...customerDetails, newCustomerDetails];
+      setCustomerDetails(newDetails);
+  
+     
 }
 
   const handleEditFormSubmit =async (event) => {
