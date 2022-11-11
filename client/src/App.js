@@ -156,27 +156,27 @@ const App = () => {
 
   const handleAddFormSubmitBranch = async (e) => {
     e.preventDefault();
-    // let obj = {
-    //   "branchId":addFormDataBranch.BranchId,
-    //     "branchName":addFormDataBranch.Name,
-    //     "branchCity":addFormDataBranch.City,
-    // }
-    // // console.log(obj);
+    let obj = {
+      "branchId":addFormDataBranch.BranchId,
+        "branchName":addFormDataBranch.Name,
+        "branchCity":addFormDataBranch.City,
+    }
+    // console.log(obj);
 
-    // let res = await axios.post("/api/admin/branches",{
+    let res = await axios.post("/api/admin/branches",{
 
-    //     "branchId":addFormDataBranch.BranchId,
-    //     "branchName":addFormDataBranch.Name,
-    //     "branchCity":addFormDataBranch.City,
+        "branchId":addFormDataBranch.BranchId,
+        "branchName":addFormDataBranch.Name,
+        "branchCity":addFormDataBranch.City,
 
-    // });
-    // // console.log(res.data);
-    // if(res.data===true){
-    //     const newDetails =await  axios.get("/api/admin/branches");
-    //     setCustomerDetails(newDetails);
-    //     // navigate("/table");
+    });
+    // console.log(res.data);
+    if(res.data===true){
+        const newDetails =await  axios.get("/api/admin/branches");
+        setCustomerDetails(newDetails);
+        // navigate("/table");
 
-    // }
+    }
     const select = document.querySelector("select");
     const value = select.options[select.selectedIndex].value;
     const text = select.options[select.selectedIndex].text;
